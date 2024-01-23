@@ -104,6 +104,10 @@ const TicTacToe = () => {
   useEffect(() => {
     if (status !== gameStatus.inProgress) {
       gameOverSound.play();
+
+      //clear local storage
+      localStorage.removeItem("tictactoe-game");
+      localStorage.removeItem("tictactoe-change");
     }
   }, [status]);
 
