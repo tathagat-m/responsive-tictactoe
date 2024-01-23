@@ -68,7 +68,6 @@ const TicTacToe = () => {
   };
 
   const handleUndo = () => {
-    if (changes.length === 0) return;
     const newTiles = [...tiles];
     newTiles[changes[changes.length - 1]] = null;
     setTiles(newTiles);
