@@ -39,8 +39,15 @@ export const checkIfWin = (tiles, setStatus, setStrikeClass) => {
 };
 
 const TicTacToe = () => {
-  const [changes, setChanges] = useState([]);
-  const [tiles, setTiles] = useState(Array(9).fill(null));
+  const storedGameData = localStorage.getItem("tictactoe-game");
+  const storedChangeData = localStorage.getItem("tictactoe-change");
+
+  const [changes, setChanges] = useState(
+    storedChangeData ? JSON.parse(storedChangeData) : []
+  );
+  const [tiles, setTiles] = useState(
+    storedGameData ? JSON.parse(storedGameData) : Array(9).fill(null)
+  );
   const [currentPlayer, setCurrentPlayer] = useState(playerX);
   const [status, setStatus] = useState(gameStatus.inProgress);
   const [strikeClass, setStrikeClass] = useState();
@@ -57,6 +64,13 @@ const TicTacToe = () => {
     setTiles(newTiles);
     setChanges([...changes, index]);
     setCurrentPlayer(currentPlayer === playerX ? playerO : playerX);
+
+    //Update local storage
+    localStorage.setItem("tictactoe-game", JSON.stringify(newTiles));
+    localStorage.setItem(
+      "tictactoe-change",
+      JSON.stringify([...changes, index])
+    );
   };
 
   const handleReset = () => {
@@ -65,6 +79,10 @@ const TicTacToe = () => {
     setCurrentPlayer(playerX);
     setStatus(gameStatus.inProgress);
     setStrikeClass();
+
+    //clear local storage
+    localStorage.removeItem("tictactoe-game");
+    localStorage.removeItem("tictactoe-change");
   };
 
   const handleUndo = () => {
