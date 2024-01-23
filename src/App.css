@@ -1,4 +1,10 @@
 body {
+  width: 100dvw;
+  height: 100dvh;
   background-color: #2D3250;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
