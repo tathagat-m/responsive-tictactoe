@@ -3,14 +3,28 @@ import Cross from "../../assets/cross.png";
 import Circle from "../../assets/circle.png";
 import { playerO, playerX } from "../../constants/GameConstant";
 
-const Tile = ({ value, onTileClick }) => {
+const Tile = ({ value, index, onTileClick }) => {
   return (
-    <div className={styles.tile} onClick={onTileClick}>
+    <div
+      data-testid={`tile-${index + 1}`}
+      className={styles.tile}
+      onClick={onTileClick}
+    >
       {value === playerX && (
-        <img className={styles.tileImg} src={Cross} alt="cross" />
+        <img
+          data-testid={`tile-img-${index + 1}`}
+          className={styles.tileImg}
+          src={Cross}
+          alt="cross"
+        />
       )}
       {value === playerO && (
-        <img className={styles.tileImg} src={Circle} alt="circle" />
+        <img
+          data-testid={`tile-img-${index + 1}`}
+          className={styles.tileImg}
+          src={Circle}
+          alt="circle"
+        />
       )}
     </div>
   );

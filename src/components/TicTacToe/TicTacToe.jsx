@@ -17,7 +17,7 @@ clickSound.volume = 0.5;
 const gameOverSound = new Audio(gameOverSoundAsset);
 gameOverSound.volume = 0.8;
 
-const checkIfWin = (tiles, setStatus, setStrikeClass) => {
+export const checkIfWin = (tiles, setStatus, setStrikeClass) => {
   let drawFlag = true;
   winningCombinations.forEach(({ combo, strikeClass }) => {
     const [a, b, c] = combo;
@@ -77,7 +77,7 @@ const TicTacToe = () => {
   };
 
   useEffect(() => {
-    if (changes.length > 0) {
+    if (tiles.some((tile) => tile !== null)) {
       clickSound.play();
     }
 
@@ -98,6 +98,7 @@ const TicTacToe = () => {
           <Tile
             key={index}
             value={tile}
+            index={index}
             onTileClick={() => handleTileClick(index)}
           />
         ))}
@@ -111,11 +112,19 @@ const TicTacToe = () => {
           : `${status}`}
       </h3>
       <div className={styles.actions}>
-        <button className={styles.actionBtn} onClick={handleReset}>
+        <button
+          data-testid="reset-button"
+          className={styles.actionBtn}
+          onClick={handleReset}
+        >
           Reset
         </button>
         {status === gameStatus.inProgress && changes.length > 0 && (
-          <button className={styles.actionBtn} onClick={handleUndo}>
+          <button
+            data-testid="undo-button"
+            className={styles.actionBtn}
+            onClick={handleUndo}
+          >
             Undo
           </button>
         )}
