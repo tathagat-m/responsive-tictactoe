@@ -1,0 +1,84 @@
+.tictactoeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.board {
+    position: relative;
+    color: #F6B17A;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    position: relative;
+    margin: auto;
+    gap: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.actions {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.actionBtn {
+    padding: 10px 20px;
+    background-color: #7077A1;
+    color: #fff;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* For Larger Screens */
+@media (min-width: 481px) {
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .board {
+        grid-template-columns: 150px 150px 150px;
+        grid-template-rows: 150px 150px 150px;
+    }
+
+    .actions {
+        width: 75%;
+        gap: 30px;
+    }
+
+    .actionBtn {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+
+/* For high res screens (Ex: iPad Pro) */
+@media (min-height: 801px) {
+    h2 {
+        font-size: 2.5em;
+    }
+
+    h3 {
+        font-size: 1.75em;
+    }
+
+    .actionBtn {
+        padding: 20px 30px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
