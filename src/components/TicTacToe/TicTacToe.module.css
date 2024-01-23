@@ -1,0 +1,40 @@
+.tictactoeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.board {
+    position: relative;
+    color: #F6B17A;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    position: relative;
+    margin: auto;
+    gap: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.actions {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.actionBtn {
+    padding: 10px 20px;
+    background-color: #7077A1;
+    color: #fff;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
